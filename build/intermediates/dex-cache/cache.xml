@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\DoDo DO\.gradle\caches\modules-2\files-2.1\org.immutables\gson\2.1.0.alpha\50de9aa0f76ca0b8f29f2cf943d4b92fdbc631e8\gson-2.1.0.alpha.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="50de9aa0f76ca0b8f29f2cf943d4b92fdbc631e8">
+        <dex dex="C:\Users\DoDo DO\Downloads\Documents\finalproject\app\build\intermediates\pre-dexed\debug\gson-2.1.0.alpha-91d199ff61e828ee077d7b6e67e5e4257c9efcc9.jar" />
+    </item>
+    <item
+        jar="C:\Users\DoDo DO\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="C:\Users\DoDo DO\Downloads\Documents\finalproject\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-486fe921937676b5be5993afd452186214a42374.jar" />
+    </item>
+    <item
+        jar="C:\Users\DoDo DO\Downloads\Documents\finalproject\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="C:\Users\DoDo DO\Downloads\Documents\finalproject\app\build\intermediates\pre-dexed\debug\classes-021fae63ced6043f5d7e58980dd5c60b07cc7c89.jar" />
+    </item>
+    <item
+        jar="C:\Users\DoDo DO\Downloads\Documents\finalproject\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="C:\Users\DoDo DO\Downloads\Documents\finalproject\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-24239ba3f7edc54d1df1ae5ac1b1e6310788a9a1.jar" />
+    </item>
+    <item
+        jar="C:\Users\DoDo DO\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\DoDo DO\Downloads\Documents\finalproject\app\build\intermediates\pre-dexed\debug\picasso-2.5.2-3b6a7e2517df2403760e62f82c912308edfc97bd.jar" />
+    </item>
+    <item
+        jar="C:\Users\DoDo DO\Downloads\Documents\finalproject\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="C:\Users\DoDo DO\Downloads\Documents\finalproject\app\build\intermediates\pre-dexed\debug\classes-714da00293d2878642fa294c7ef3a5c2a66abea6.jar" />
+    </item>
+    <item
+        jar="C:\Users\DoDo DO\.gradle\caches\modules-2\files-2.1\com.loopj.android\android-async-http\1.4.8\77bbfe240e437ecb396d982afa0d3bd4f9090ba7\android-async-http-1.4.8.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="77bbfe240e437ecb396d982afa0d3bd4f9090ba7">
+        <dex dex="C:\Users\DoDo DO\Downloads\Documents\finalproject\app\build\intermediates\pre-dexed\debug\android-async-http-1.4.8-f505162f2962a4bc16808c4be948198a1d960ef9.jar" />
+    </item>
+    <item
+        jar="C:\Users\DoDo DO\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3.1\ecb6e1f8e4b0e84c4b886c2f14a1500caf309757\gson-2.3.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="C:\Users\DoDo DO\Downloads\Documents\finalproject\app\build\intermediates\pre-dexed\debug\gson-2.3.1-bda8d5ec68cbadae839adb459012fe124e723837.jar" />
+    </item>
+
+</items>
