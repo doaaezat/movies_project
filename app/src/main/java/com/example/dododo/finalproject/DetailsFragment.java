@@ -1,22 +1,28 @@
 package com.example.dododo.finalproject;
 
+import android.annotation.TargetApi;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,15 +30,20 @@ import com.example.dododo.finalproject.data.Contract;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
 import static com.example.dododo.finalproject.gson.*;
 
 
 public class DetailsFragment extends Fragment implements LoaderManager.LoaderCallbacks<String> {
 
+    private List<vedios.ResultsEntity> trailer;
+
     public DetailsFragment() {
+        setHasOptionsMenu(true);
     }
 
-
+    private vedios videoObjects;
     ImageView imageview;
     TextView title;
     TextView overview;
@@ -100,14 +111,43 @@ public class DetailsFragment extends Fragment implements LoaderManager.LoaderCal
                 if (adapterView.getItemAtPosition(i) instanceof vedios.ResultsEntity) {
                     vedios.ResultsEntity video = (vedios.ResultsEntity) adapterView.getItemAtPosition(i);
                     Uri uri = Uri.parse("http://www." + video.getSite() + ".com/watch?v=" + video.getKey());
-                    Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     startActivity(intent);
                 }
+
             }
         });
 
         return rootView;
     }
+
+/*    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        MenuItem menuShare = menu.findItem(R.id.menu_item_share);
+        ShareActionProvider shareAction = (ShareActionProvider)
+                menuShare.getActionProvider();
+        vedios.ResultsEntity resultsEntity = trailer.get(0);
+        if (resultsEntity != null) {
+            vedios.ResultsEntity video2 = resultsEntity;
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Sharing URL");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "http://www." + video2.getSite() + ".com/watch?v=" + video2.getKey());
+            startActivity(shareIntent);
+        }
+    }*/
+
+
+    //                if (lv.getItemAtPosition(0) instanceof vedios.ResultsEntity){
+//                    vedios.ResultsEntity video2 = (vedios.ResultsEntity) lv.getItemAtPosition(i);
+//                    Intent myintent = new Intent(Intent.ACTION_SEND);
+//                    myintent.setType("text/plain");
+//                    myintent.putExtra(Intent.EXTRA_SUBJECT, "Sharing URL");
+//                    myintent.putExtra(Intent.EXTRA_TEXT, "http://www." + video2.getSite() + ".com/watch?v=" + video2.getKey());
+//                    startActivity(Intent.createChooser(myintent, "Share URL")); }
+
 
     @Override
     public Loader<String> onCreateLoader(int id, Bundle args) {
@@ -126,12 +166,14 @@ public class DetailsFragment extends Fragment implements LoaderManager.LoaderCal
                 String reviews = result[1];
                 Gson parser1 = new Gson();
                 review reviewObject = parser1.fromJson(reviews, review.class);
-                vedios videoObjects = parser1.fromJson(video, vedios.class);
+                videoObjects = parser1.fromJson(video, vedios.class);
+                trailer = videoObjects.getResults();
                 com.example.dododo.finalproject.detailAdapter adapter = new detailAdapter(getActivity());
                 adapter.addItem(reviewObject.getResults());
                 adapter.addItem(videoObjects.getResults());
                 lv.setAdapter(adapter);
                 //lv.setOnItemClickListener(new AdapterView.OnItemClickListener());
+
 
             }
 
@@ -152,6 +194,37 @@ public class DetailsFragment extends Fragment implements LoaderManager.LoaderCal
     @Override
     public void onLoaderReset(Loader<String> loader) {
 
+    }
+
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_detail, menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        vedios.ResultsEntity resultsEntity = trailer.get(0);
+        switch (id) {
+            case R.id.menu_item_share:
+                if (resultsEntity != null) {
+
+                    Intent share = new Intent();
+                    share.setAction(Intent.ACTION_SEND);
+                    share.setType("text/plain");
+                    share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                    share.putExtra(Intent.EXTRA_SUBJECT, "Favorite movie");
+                    share.putExtra(Intent.EXTRA_TEXT, "http://www." + resultsEntity.getSite() + ".com/watch?v=" + resultsEntity.getKey());
+
+                    startActivity(share);
+                }
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     long add_favorite(int id, String title, String overview, String rate, String relase_date, String image) {
@@ -195,4 +268,5 @@ public class DetailsFragment extends Fragment implements LoaderManager.LoaderCal
         return favouraitId;
 
     }
+
 }

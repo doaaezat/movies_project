@@ -3,4 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.dododo.finalproject.DetailsActivity">
 
+    <item
+        android:id="@+id/menu_item_share"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="Share first trailer" />
+
 </menu>
